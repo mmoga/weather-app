@@ -47,6 +47,11 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.error) {
+      return (
+        <h1>{this.state.error}</h1>
+      )
+    }
     return (
       <div>
         <h1>Welcome to Woother!</h1>
