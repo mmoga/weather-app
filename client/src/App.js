@@ -93,11 +93,9 @@ class App extends Component {
         { this.state.error ? <h1>{this.state.error}</h1> : '' }
         { isEmptyObject(this.state.dailyWeather) ?
           "" :
-          this.state.dailyWeather.data.map(day => {
-            return <div className="App">
-              <div key={this.temperatureHigh}>
+          this.state.dailyWeather.data.map((day, index) => {
+            return <div key={index} className="App">
                 <DailyWeather {...day} />
-              </div>
               </div>
           })
         }
