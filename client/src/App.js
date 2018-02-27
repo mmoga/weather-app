@@ -35,10 +35,19 @@ class App extends Component {
     e.preventDefault();
     getWeather(this.state.lat, this.state.lon)
       .then(response => {
+      //   const d = response.data;
+      //   const days = d.daily.data;
+      //   this.setState({
+      //     weather: {
+      //       'current': d.currently.temperature,
+      //       'summary': d.hourly.summary,
+      //       'daily': [days[1], days[2], days[3], days[4], days[5]]
+      //     }
         const dailyWeather = response.data.daily;
         this.setState({
           dailyWeather: dailyWeather
         });
+        console.log(this.state.dailyWeather)
       })
       .catch(error => {
         console.error(error);
@@ -77,12 +86,20 @@ class App extends Component {
             min="-180"
             max="180"/>
           </label>
-          <button type="submit">Woother!</button>
+          <button type="submit">Woot!</button>
         </form>
         { this.state.error ? <h1>{this.state.error}</h1> : '' }
         { isEmptyObject(this.state.dailyWeather) ?
           "" :
-          <DailyWeather {...this.state.dailyWeather}/>}
+          this.state.dailyWeather.data.map(day => {
+            return <DailyWeather {...day} />
+          })
+        }
+
+
+          {/* <pre>
+            {JSON.stringify(this.state.dailyWeather, null, 4)}
+          </pre> */}
       </div>
     );
   }
