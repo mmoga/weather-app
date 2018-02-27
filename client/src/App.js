@@ -95,7 +95,9 @@ class App extends Component {
           "" :
           this.state.dailyWeather.data.map(day => {
             return <div className="App">
-              <DailyWeather {...day} />
+              <div key={this.temperatureHigh}>
+                <DailyWeather {...day} />
+              </div>
               </div>
           })
         }
