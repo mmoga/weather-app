@@ -7,13 +7,12 @@ const DailyWeather = props => {
     return (
         <section>
             <ul>
-          <li>Time: {convertTimestamp(props.time)}</li>
-          <li><img src={images(props.icon)} alt={props.icon}/></li>
-          <li>Summary: {props.summary}</li>
-          <li>
-                Temperature:<br /> 
-                High: {props.temperatureHigh}&deg; F<br />
-                Low: {props.temperatureLow}&deg; F
+          <li className="DailyWeather--date">{convertTimestamp(props.time)}</li>
+          <li className="DailyWeather--icon"><img src={images(props.icon)} alt={props.icon}/></li>
+          <li className="DailyWeather--summary">{props.summary}</li>
+          <li className="DailyWeather--temperature">
+                <span className="high-temp">High</span>: {props.temperatureHigh}&deg; F<br />
+                <span className="low-temp">Low</span>: {props.temperatureLow}&deg; F
           </li>
         </ul>
         </section>
@@ -23,8 +22,9 @@ const DailyWeather = props => {
 DailyWeather.propTypes = {
     time: PropTypes.number.isRequired,
     summary: PropTypes.string.isRequired,
-    // icon: PropTypes.string.isRequired,
-    temperature: PropTypes.number.isRequired
+    icon: PropTypes.string.isRequired,
+    temperatureHigh: PropTypes.number.isRequired,
+    temperatureLow: PropTypes.number.isRequired
 }
 
 export default DailyWeather;

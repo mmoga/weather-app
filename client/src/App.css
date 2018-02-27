@@ -1,0 +1,58 @@
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+.App--header {
+    text-align: center;
+}
+
+.App ul {
+    list-style-type: none;
+    padding-left: 0;
+    border: solid 1px #A7A6A2;
+    background-color: rgb(84, 83, 88);
+    min-width: 300px;
+}
+
+input {
+background: #404B69;
+border: 0;
+border-bottom: 2px solid #3BB7EA;
+box-sizing: border-box;
+color: #fff;
+font-size: 2em;
+font-family: 'Exo 2', sans-serif;
+margin: 40px 0;
+max-width: 100%;
+padding: 5px;
+}
+  
+input:focus {
+background: #413f4a;
+outline: none;
+}
+
+.DailyWeather--date {
+    color: #DBEDF3;
+    font-size: 2.5em;
+}
+
+.DailyWeather--summary {
+    color: #DBEDF3;
+}
+
+.DailyWeather--temperature {
+    color: #DBEDF3;
+}
+
+.high-temp {
+    color: #DA0463;
+}
+
+.low-temp {
+    color: #283149;
+}

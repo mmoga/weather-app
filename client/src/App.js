@@ -65,8 +65,9 @@ class App extends Component {
     }
     return (
       <div>
-        <h1>Welcome to Woother!</h1>
-        <p>What's the Woother?</p>
+        <div className="App--header">
+          <h1>The Weather App</h1>
+          <p>What's the weather?</p>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <label>
             Latitude:
@@ -86,20 +87,18 @@ class App extends Component {
             min="-180"
             max="180"/>
           </label>
-          <button type="submit">Woot!</button>
+          <button type="submit">Tell me!</button>
         </form>
+        </div>
         { this.state.error ? <h1>{this.state.error}</h1> : '' }
         { isEmptyObject(this.state.dailyWeather) ?
           "" :
           this.state.dailyWeather.data.map(day => {
-            return <DailyWeather {...day} />
+            return <div className="App">
+              <DailyWeather {...day} />
+              </div>
           })
         }
-
-
-          {/* <pre>
-            {JSON.stringify(this.state.dailyWeather, null, 4)}
-          </pre> */}
       </div>
     );
   }
