@@ -5,7 +5,6 @@ export const convertTimestamp = (seconds) => {
   "July", "August", "September", "October", "November", "December"
     ];
     const d = new Date(seconds * 1000); // convert to milliseconds
-    // format: mm/dd/YYYY HH:MM
     const month = monthNames[d.getMonth()];
     const day = d.getDate();
     return `${month} ${day}`;

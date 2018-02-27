@@ -4,6 +4,7 @@ import './App.css';
 import { getWeather } from './services/weather';
 import { isEmptyObject } from './utils';
 import DailyWeather from './DailyWeather';
+import Zipcode from '/.Zipcode';
 
 class App extends Component {
   constructor() {
@@ -35,14 +36,6 @@ class App extends Component {
     e.preventDefault();
     getWeather(this.state.lat, this.state.lon)
       .then(response => {
-      //   const d = response.data;
-      //   const days = d.daily.data;
-      //   this.setState({
-      //     weather: {
-      //       'current': d.currently.temperature,
-      //       'summary': d.hourly.summary,
-      //       'daily': [days[1], days[2], days[3], days[4], days[5]]
-      //     }
         const dailyWeather = response.data.daily;
         this.setState({
           dailyWeather: dailyWeather
@@ -69,6 +62,10 @@ class App extends Component {
           <h1>The Weather App</h1>
           <p>What's the weather?</p>
         <form onSubmit={(e) => this.handleSubmit(e)}>
+          <label>
+            Zipcode:
+            <Zipcode />
+          </label>
           <label>
             Latitude:
             <input 
