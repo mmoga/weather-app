@@ -1,5 +1,4 @@
-import React from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
 
 class Zipcode extends Component {
     constructor() {
@@ -13,8 +12,7 @@ class Zipcode extends Component {
     handleChange(e) {
         this.setState({ value: e.target.value });
         if (this.state.value.length === 4 && !isNaN(this.state.value)) {
-          console.log('Getting location...');
-          this.getLocationFromZip(e.target.value);
+          console.log(e.target.value);
         }
       }
 

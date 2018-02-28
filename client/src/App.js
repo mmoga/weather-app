@@ -4,7 +4,7 @@ import './App.css';
 import { getWeather } from './services/weather';
 import { isEmptyObject } from './utils';
 import DailyWeather from './DailyWeather';
-import Zipcode from '/.Zipcode';
+import Zipcode from './Zipcode';
 
 class App extends Component {
   constructor() {
@@ -62,10 +62,7 @@ class App extends Component {
           <h1>The Weather App</h1>
           <p>What's the weather?</p>
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <label>
-            Zipcode:
             <Zipcode />
-          </label>
           <label>
             Latitude:
             <input 
