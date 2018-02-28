@@ -21,7 +21,7 @@ serverApp.get('/forecast/:lat,:lon', function(request, response){
         });
 });
 
-serverApp.get('/maps/api/geocode/json?address=:zipcode', function(request, response) {
+serverApp.get('/geocode/:zipcode', function(request, response) {
     const { zipcode } = request.params;
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=${GOOGLE_API_KEY}`;
     axios.get(url)

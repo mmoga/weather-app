@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 export const getWeatherByZip = (zipcode) => {
-    const url = `/maps/api/geocode/json?address=${zipcode}`;
+    const url = `geocode/${zipcode}`;
     return axios.get(url)
         .then(response => {
-            const lat = response.results.location.lat;
-            const lon = response.results.location.lon;
+            const lat = response.data.results[0].geometry.location.lat;
+            const lon = response.data.results[0].geometry.location.lng;
             return getWeather(lat, lon);
         })
 }

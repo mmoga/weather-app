@@ -23,19 +23,20 @@ class App extends Component {
     this.handleLonChange = this.handleLonChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleZipChange = this.handleZipChange.bind(this);
-    // this.setZip = this.setZip.bind(this);
+    // this.zipAlert = this.zipAlert.bind(this);
   }
-  // handleZipChange(e) {
+  // zipAlert(e) {
   //   this.setState({ value: e.target.value });
   //   if (this.state.value.length === 4 && !isNaN(this.state.value)) {
-  //     this.handleZipChange();
+  //     alert('Enter numbers!');
   //   }
   // }
+
   handleZipChange(e) {
     this.setState({
       zip: +e.target.value
     });
-    console.log('Zip set!');
+    console.log('Zip entered!');
   }
 
   handleLatChange(e) {
