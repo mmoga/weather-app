@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { 
-  // getWeather, 
-  getWeatherByZip 
-} from './services/weather';
+import { getWeatherByZip } from './services/weather';
 import { isEmptyObject } from './utils';
 import DailyWeather from './DailyWeather';
-// import Zipcode from './Zipcode';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      // lat: '',
-      // lon: '',
       zip: '',
       dailyWeather: {},
       error: null
@@ -53,7 +47,6 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // getWeather(this.state.lat, this.state.lon)
     getWeatherByZip(this.state.zip)
       .then(response => {
         const dailyWeather = response.data.daily;
@@ -87,24 +80,6 @@ class App extends Component {
                  value={this.state.zip}
                  onChange={(e) => this.handleZipChange(e)}
                  placeholder="Enter zip code"/>
-          {/* <label>
-            Latitude:
-            <input 
-            type="number"
-            onChange={(e) => this.handleLatChange(e)}
-            value={this.state.lat}
-            min="-90"
-            max="90"/>
-          </label>
-          <label>
-            Longitude:
-            <input 
-            type="number"
-            onChange={(e) => this.handleLonChange(e)}
-            value={this.state.lon}
-            min="-180"
-            max="180"/>
-          </label> */}
           <button type="submit">Tell me!</button>
         </form>
         </div>
