@@ -1,23 +1,41 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import { getWeather } from './services/weather';
+import { 
+  // getWeather, 
+  getWeatherByZip 
+} from './services/weather';
 import { isEmptyObject } from './utils';
 import DailyWeather from './DailyWeather';
-import Zipcode from './Zipcode';
+// import Zipcode from './Zipcode';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      lat: '',
-      lon: '',
+      // lat: '',
+      // lon: '',
+      zip: '',
       dailyWeather: {},
       error: null
     };
     this.handleLatChange = this.handleLatChange.bind(this);
     this.handleLonChange = this.handleLonChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleZipChange = this.handleZipChange.bind(this);
+    // this.setZip = this.setZip.bind(this);
+  }
+  // handleZipChange(e) {
+  //   this.setState({ value: e.target.value });
+  //   if (this.state.value.length === 4 && !isNaN(this.state.value)) {
+  //     this.handleZipChange();
+  //   }
+  // }
+  handleZipChange(e) {
+    this.setState({
+      zip: +e.target.value
+    });
+    console.log('Zip set!');
   }
 
   handleLatChange(e) {
@@ -34,7 +52,8 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    getWeather(this.state.lat, this.state.lon)
+    // getWeather(this.state.lat, this.state.lon)
+    getWeatherByZip(this.state.zip)
       .then(response => {
         const dailyWeather = response.data.daily;
         this.setState({
@@ -62,8 +81,12 @@ class App extends Component {
           <h1>The Weather App</h1>
           <p>What's the weather?</p>
         <form onSubmit={(e) => this.handleSubmit(e)}>
-            <Zipcode />
-          <label>
+        <input type="text"
+                 maxLength="5"
+                 value={this.state.zip}
+                 onChange={(e) => this.handleZipChange(e)}
+                 placeholder="Enter zip code"/>
+          {/* <label>
             Latitude:
             <input 
             type="number"
@@ -80,7 +103,7 @@ class App extends Component {
             value={this.state.lon}
             min="-180"
             max="180"/>
-          </label>
+          </label> */}
           <button type="submit">Tell me!</button>
         </form>
         </div>
