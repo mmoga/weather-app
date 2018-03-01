@@ -11,6 +11,6 @@ export const getWeatherByZip = (zipcode) => {
 }
 
 export const getWeather = (latitude, longitude) => {
-    const url = `/forecast/${longitude},${latitude}`;
+    const url = `/forecast/${latitude},${longitude}`;
     return axios.get(url);
 }

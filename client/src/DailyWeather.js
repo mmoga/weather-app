@@ -5,7 +5,7 @@ import { convertTimestamp } from './utils';
 import images from './images';
 const DailyWeather = props => {
     return (
-        <section>
+        <section className="DailyWeather--section">
             <ul>
           <li className="DailyWeather--date">{convertTimestamp(props.time)}</li>
           <li className="DailyWeather--icon"><img src={images(props.icon)} alt={props.icon}/></li>

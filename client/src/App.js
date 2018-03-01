@@ -30,7 +30,6 @@ class App extends Component {
     this.setState({
       zip: +e.target.value
     });
-    console.log('Zip entered!');
   }
 
   handleLatChange(e) {
@@ -53,7 +52,6 @@ class App extends Component {
         this.setState({
           dailyWeather: dailyWeather
         });
-        console.log(this.state.dailyWeather)
       })
       .catch(error => {
         console.error(error);
@@ -84,14 +82,16 @@ class App extends Component {
         </form>
         </div>
         { this.state.error ? <h1>{this.state.error}</h1> : '' }
-        { isEmptyObject(this.state.dailyWeather) ?
-          "" :
-          this.state.dailyWeather.data.map((day, index) => {
-            return <div key={index} className="App">
-                <DailyWeather {...day} />
-              </div>
-          })
-        }
+        <div className="App--main">
+          { isEmptyObject(this.state.dailyWeather) ?
+            "" :
+            this.state.dailyWeather.data.map((day, index) => {
+              return <div key={index} className="App--boxes">
+                  <DailyWeather {...day} />
+                </div>
+            })
+          }
+        </div>
       </div>
     );
   }

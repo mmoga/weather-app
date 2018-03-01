@@ -1,21 +1,26 @@
-.App {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-  }
-
 .App--header {
     text-align: center;
 }
 
-.App ul {
-    list-style-type: none;
-    padding-left: 0;
+.App--main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.DailyWeather--section {
+    text-align: center;    
     border: solid 1px #A7A6A2;
     background-color: rgb(84, 83, 88);
     min-width: 300px;
+    min-height: 300px;
+    box-shadow: rgb(51, 60, 85) 6px 6px 4px; 
+}
+
+.DailyWeather--section ul {
+    list-style-type: none;
+    /* padding-left: 0;  */
+    padding: 10px;  
 }
 
 input {
@@ -55,4 +60,13 @@ outline: none;
 
 .low-temp {
     color: #283149;
+}
+
+@media only screen and (max-width: 480px ) {
+    .App--main {
+        display: block;
+    }
+    .App--boxes {
+        padding: 10px;
+    }
 }
