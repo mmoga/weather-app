@@ -24,12 +24,6 @@ serverApp.get('/forecast/:lat,:lon', function(request, response){
         });
 });
 
-//this serves the finished React app
-serverApp.get('*', (request, response) => {
-    response.sendFile('index.html', { root: path.resolve('client/build') });
-});
-
-
 serverApp.get('/geocode/:zipcode', function(request, response) {
     const { zipcode } = request.params;
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=${GOOGLE_API_KEY}`;
@@ -42,6 +36,11 @@ serverApp.get('/geocode/:zipcode', function(request, response) {
                 msg: 'No zipcode functionality. Sorry'
             })
         });
+});
+
+//this serves the finished React app
+serverApp.get('*', (request, response) => {
+    response.sendFile('index.html', { root: path.resolve('client/build') });
 });
 
 serverApp.listen(port, () => {
