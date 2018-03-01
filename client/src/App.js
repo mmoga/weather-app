@@ -78,7 +78,7 @@ class App extends Component {
                  value={this.state.zip}
                  onChange={(e) => this.handleZipChange(e)}
                  placeholder="Enter zip code"/>
-          <button type="submit">Tell me!</button>
+          <button className="submit-btn" type="submit">Tell me!</button>
         </form>
         </div>
         { this.state.error ? <h1>{this.state.error}</h1> : '' }

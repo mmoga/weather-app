@@ -13,7 +13,7 @@
     border: solid 1px #A7A6A2;
     background-color: rgb(84, 83, 88);
     min-width: 300px;
-    min-height: 300px;
+    min-height: 325px;
     box-shadow: rgb(51, 60, 85) 6px 6px 4px; 
 }
 
@@ -39,6 +39,15 @@ padding: 5px;
 input:focus {
 background: #ecff4063;
 outline: none;
+}
+
+.submit-btn {
+    background-color: #3BB7EA;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #DBEDF3;
+    font-size: 18px;
 }
 
 .DailyWeather--date {
