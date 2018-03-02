@@ -9,3 +9,8 @@ export const convertTimestamp = (seconds) => {
     const day = d.getDate();
     return `${month} ${day}`;
 }
+
+export const shortenTemperature = (temp) => {
+  const shortTemp = Math.round(temp); 
+  return shortTemp;
+}
